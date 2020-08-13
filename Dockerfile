@@ -29,7 +29,7 @@ RUN set -e \
 
 ENV \
     JAVA_HOME=${JAVA_HOME} \
-    STABLE_EXTENSIONS='' \
+    STABLE_EXTENSIONS='charts-plugin,sqlserver-plugin' \
     COMMUNITY_EXTENSIONS='' \
     DEBIAN_FRONTEND=noninteractive \
     GEOSERVER_DATA_DIR=/opt/geoserver/data_dir \

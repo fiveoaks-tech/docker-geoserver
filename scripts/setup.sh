@@ -35,8 +35,9 @@ pushd /plugins
 # Download all other plugins to keep for activating using env variables
 
 for plugin in `cat stable_plugins.txt`;do
-  url="${STABLE_PLUGIN_URL}/geoserver-${GS_VERSION}-${plugin}.zip"
-  download_extension ${url} ${plugin}
+  plugin_name="$(echo $plugin | sed -e 's/\r//g')"
+  url="${STABLE_PLUGIN_URL}/geoserver-${GS_VERSION}-${plugin_name}.zip"
+  download_extension ${url} ${plugin_name}
 done
 
 # Download community modules
@@ -44,8 +45,9 @@ done
 pushd /community_plugins
 
 for plugin in `cat community_plugins.txt`;do
-  community_url="https://build.geoserver.org/geoserver/${GS_VERSION:0:5}x/community-latest/geoserver-${GS_VERSION:0:4}-SNAPSHOT-${plugin}.zip"
-  download_extension ${community_url} ${plugin}
+  plugin_name="$(echo $plugin | sed -e 's/\r//g')"
+  community_url="https://build.geoserver.org/geoserver/${GS_VERSION:0:5}x/community-latest/geoserver-${GS_VERSION:0:4}-SNAPSHOT-${plugin_name}.zip"
+  download_extension ${community_url} ${plugin_name}
 
 done
 
